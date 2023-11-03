@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class TeleportToCheckpoint : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("sdfsdf");
+         Debug.Log("sdfsdf");
         if (other.CompareTag("Player"))
         {
             Checkpoint.TeleportToLastCheckpoint(other.transform);
         }
     }
+   
 }
