@@ -18,6 +18,7 @@ public class Player_Controller1 : MonoBehaviour
 
     public float NormalSpeed;
     public float Sprint = 100f;
+
     private void Start()
     {
 
