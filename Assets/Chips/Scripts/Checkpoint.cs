@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
     public static List<Transform> collectedCheckpoints = new List<Transform>();
     private bool hasTeleported = false;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !hasTeleported)

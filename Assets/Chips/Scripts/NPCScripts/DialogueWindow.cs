@@ -11,6 +11,7 @@ public class DialogueWindow : MonoBehaviour
     [SerializeField] TextMeshProUGUI textDialog;
     [SerializeField] Button button;
 
+
     public string[] message;
     private int numberDialog = 0;
     private void OnTriggerEnter(Collider collision)

@@ -15,10 +15,15 @@ public class Player_Controller1 : MonoBehaviour
     public LayerMask Ground;
     bool isGround;
     public float JumpHeight = 10f;
-
+private  bool a = false;
     public float NormalSpeed;
     public float Sprint = 100f;
-
+    private bool enter = false;
+    private bool isSitting = false;
+    [SerializeField] float Plus_height;
+    [SerializeField] float HeightNormal;
+    [SerializeField] float HeightDown;
+    [SerializeField] float Plus_time;
     private void Start()
     {
 
@@ -54,6 +59,7 @@ public class Player_Controller1 : MonoBehaviour
         {
             velosity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }
+        Player_down();
     }
     //private void OnTriggerEnter(Collider other)
     //{
@@ -67,8 +73,39 @@ public class Player_Controller1 : MonoBehaviour
     //        Time.timeScale = 0;
     //    }
     //}
+    public void Player_down()
+    {
+      
+        if (Input.GetKey(KeyCode.LeftControl) && isGround&& a)
+        {
+            
+            cc.height = HeightDown;
+            
+            a = false;
+
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl) && isGround && !a)
+        {
+            StartCoroutine(Down_Time());
+            
+            a = true;
+        }
 
 
+    }
+    IEnumerator Down_Time()
+    {
+      
+
+        while (cc.height <= HeightNormal)
+        {
+            yield return new WaitForSeconds(Plus_time);
+            cc.height += Plus_height;
+            enter = true;
+        }
+
+        isSitting = false;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(GroundCheck.position, GroundDistanse);
