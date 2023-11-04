@@ -76,7 +76,7 @@ private  bool a = false;
     public void Player_down()
     {
       
-        if (Input.GetKey(KeyCode.LeftControl) && isGround&& a)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGround&& a)
         {
             
             cc.height = HeightDown;
@@ -84,7 +84,7 @@ private  bool a = false;
             a = false;
 
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl) && isGround && !a)
+        else if(Input.GetKeyDown(KeyCode.LeftControl) && isGround && !a)
         {
             StartCoroutine(Down_Time());
             
