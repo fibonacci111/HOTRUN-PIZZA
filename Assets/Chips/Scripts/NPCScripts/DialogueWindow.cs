@@ -10,16 +10,27 @@ public class DialogueWindow : MonoBehaviour
     [SerializeField] GameObject windowDialog;
     [SerializeField] TextMeshProUGUI textDialog;
     [SerializeField] Button button;
-
-
+    [SerializeField] Transform target;
+    [SerializeField] Transform camera;
+    bool look;
     public string[] message;
     private int numberDialog = 0;
+    private void Update()
+    {
+        if (look)
+        {
+            camera.LookAt(target);
+        }
+    }
     private void OnTriggerEnter(Collider collision)
     {
+        
         if (collision.tag == "Player")
         {
             Cursor.lockState = CursorLockMode.Confined;
-            Time.timeScale = 0;
+            look = true;
+            Player_Controller1.pla.Speed = 0;
+            CameraMoveController.instance.speed = 0;
             if (numberDialog == message.Length - 1)
             {
                 button.gameObject.SetActive(false);
@@ -50,7 +61,9 @@ public class DialogueWindow : MonoBehaviour
         if (numberDialog == message.Length - 1)
         {
             button.gameObject.SetActive(false);
-            Time.timeScale = 1;
+            look = false;
+            Player_Controller1.pla.Speed = Player_Controller1.pla.NormalSpeed;
+            CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
