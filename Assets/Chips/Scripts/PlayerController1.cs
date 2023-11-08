@@ -18,12 +18,19 @@ public class Player_Controller1 : MonoBehaviour
 private  bool a = false;
     public float NormalSpeed;
     public float Sprint = 100f;
+    public float DownSpeed = 20f;
     private bool enter = false;
     private bool isSitting = false;
     [SerializeField] float Plus_height;
     [SerializeField] float HeightNormal;
     [SerializeField] float HeightDown;
     [SerializeField] float Plus_time;
+
+   public static Player_Controller1 pla;
+    private void Awake()
+    {
+        pla = this;
+    }
     private void Start()
     {
 
@@ -44,7 +51,7 @@ private  bool a = false;
             Speed = Sprint;
 
         }
-        else
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             Speed = NormalSpeed;
         }
@@ -59,6 +66,9 @@ private  bool a = false;
         {
             velosity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }
+        
+        
+        
         Player_down();
     }
     //private void OnTriggerEnter(Collider other)
@@ -78,17 +88,19 @@ private  bool a = false;
       
         if (Input.GetKeyDown(KeyCode.LeftControl) && isGround&& a)
         {
-            
+            Speed = DownSpeed;
             cc.height = HeightDown;
             
             a = false;
+            
 
         }
         else if(Input.GetKeyDown(KeyCode.LeftControl) && isGround && !a)
-        {
+        { Speed = NormalSpeed;
             StartCoroutine(Down_Time());
             
             a = true;
+           
         }
 
 

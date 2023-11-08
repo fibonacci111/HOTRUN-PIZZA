@@ -5,14 +5,17 @@ using UnityEngine;
 public class CameraMoveController : MonoBehaviour
 {
     public float speed = 100f;
-
+    public float normalSpeed;
 
 
     public Transform player_body;
 
     float xRotation = 0f;
+public static CameraMoveController instance;
     void Start()
     {
+        instance = this;
+        normalSpeed = speed;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
