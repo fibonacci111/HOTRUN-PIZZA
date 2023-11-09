@@ -13,9 +13,9 @@ public class Desk_animation : MonoBehaviour
             anim.SetBool("Start", true);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player")&&Input.GetKeyDown(KeyCode.E))
         {
             enter = true;
         }
