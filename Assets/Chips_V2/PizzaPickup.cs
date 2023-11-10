@@ -12,6 +12,17 @@ public class PizzaPickup : MonoBehaviour
     {
         instance = this;
     }
+    private void Update()
+    {
+        if (!pizza.activeSelf) 
+        { 
+            pizzaIsActive = true; 
+        }
+        else if(pizza.activeSelf) 
+        { 
+            pizzaIsActive = false; 
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trigger entered");
@@ -19,12 +30,12 @@ public class PizzaPickup : MonoBehaviour
         {
             pizza.SetActive(false);
             playerPizza.SetActive(true);
-            pizzaIsActive = true;
+            
         }else if(other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf == false && playerPizza.activeSelf)
         {
             pizza.SetActive(true);
             playerPizza.SetActive(false);
-            pizzaIsActive = false;
+           
         }
     }
 }
