@@ -56,13 +56,21 @@ private  bool a = false;
             Speed = NormalSpeed;
         }
         float horisontal = Input.GetAxisRaw("Horizontal");
+       
         Vector3 move = transform.right * horisontal + transform.forward * vertical;
-        cc.Move(move * Speed * Time.deltaTime);
-
-        velosity.y += gravity * Time.deltaTime;
+        Vector3 move_forword = transform.forward * vertical;
+        if (vertical != -1 && !isGround)
+        {
+            cc.Move(move_forword * Speed * Time.deltaTime);
+        }
+        else if (isGround)
+        {
+            cc.Move(move * Speed * Time.deltaTime);
+        }
+            velosity.y += gravity * Time.deltaTime;
         cc.Move(velosity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGround)
+        if (Input.GetButtonDown("Jump") && isGround&& !PizzaPickup.instance.pizzaIsActive)
         {
             velosity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }

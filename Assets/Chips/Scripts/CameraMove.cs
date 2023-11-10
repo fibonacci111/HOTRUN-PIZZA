@@ -7,11 +7,12 @@ public class CameraMoveController : MonoBehaviour
     public float speed = 100f;
     public float normalSpeed;
 
-
+    public Transform CameraController;
     public Transform player_body;
 
     float xRotation = 0f;
-public static CameraMoveController instance;
+    
+    public static CameraMoveController instance;
     void Start()
     {
         instance = this;
@@ -27,9 +28,10 @@ public static CameraMoveController instance;
         float y = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
         xRotation -= y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        CameraController.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player_body.Rotate(Vector3.up * x);
     }
+
 }
 
 

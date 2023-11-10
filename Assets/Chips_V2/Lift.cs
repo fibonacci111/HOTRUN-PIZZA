@@ -10,7 +10,9 @@ public class Lift : MonoBehaviour
     [SerializeField] Transform position2;
     private bool _switch;
     public float speed;
+
     public bool switching = false;
+
     void FixedUpdate()
     {
 
