@@ -56,6 +56,7 @@ private  bool a = false;
             Speed = NormalSpeed;
         }
         float horisontal = Input.GetAxisRaw("Horizontal");
+       
         Vector3 move = transform.right * horisontal + transform.forward * vertical;
         cc.Move(move * Speed * Time.deltaTime);
 
