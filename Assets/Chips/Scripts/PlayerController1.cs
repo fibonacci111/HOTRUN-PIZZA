@@ -25,7 +25,7 @@ private  bool a = false;
     [SerializeField] float HeightNormal;
     [SerializeField] float HeightDown;
     [SerializeField] float Plus_time;
-
+    public bool isPizzaTake = false;
    public static Player_Controller1 pla;
     private void Awake()
     {
@@ -70,7 +70,7 @@ private  bool a = false;
             velosity.y += gravity * Time.deltaTime;
         cc.Move(velosity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGround&& !PizzaPickup.instance.pizzaIsActive)
+        if (Input.GetButtonDown("Jump") && isGround&& !isPizzaTake)
         {
             velosity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
         }
