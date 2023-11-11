@@ -5,37 +5,34 @@ public class PizzaPickup : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     public GameObject pizza;
     public GameObject playerPizza;
-    public bool pizzaIsActive = false;
 
-    public static PizzaPickup instance;
-    private void Awake()
+  
+    public Player_Controller1 playerController;
+
+    private void Start()
     {
-        instance = this;
+        
+        playerController = FindObjectOfType<Player_Controller1>();
     }
-    private void Update()
-    {
-        if (!pizza.activeSelf) 
-        { 
-            pizzaIsActive = true; 
-        }
-        else if(pizza.activeSelf) 
-        { 
-            pizzaIsActive = false; 
-        }
-    }
+
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trigger entered");
-        if (other.CompareTag("Player") && Input.GetKeyDown(pickupKey)&& pizza.activeSelf &&!playerPizza.activeSelf )
+
+        if (other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf && !playerPizza.activeSelf)
         {
             pizza.SetActive(false);
             playerPizza.SetActive(true);
-            
-        }else if(other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf == false && playerPizza.activeSelf)
+
+           
+            playerController.isPizzaTake = true;
+        }
+        else if (other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf == false && playerPizza.activeSelf)
         {
             pizza.SetActive(true);
             playerPizza.SetActive(false);
-           
+
+            playerController.isPizzaTake = false;
         }
     }
 }
