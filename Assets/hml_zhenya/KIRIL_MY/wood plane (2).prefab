@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6599774625924647485}
   - component: {fileID: 5156506851608872758}
   - component: {fileID: 8359065209211130795}
+  - component: {fileID: 3483458918382014170}
   m_Layer: 0
   m_Name: wood plane (3)
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3483458918382014170
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906660816440800173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04464287, y: 1.5336474, z: 0.7668122}
+  m_Center: {x: 0.00000047683716, y: 0.000000029802344, z: 0.00000023841852}
 --- !u!1 &6993066409454046434
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +116,7 @@ GameObject:
   - component: {fileID: 6835354659462990018}
   - component: {fileID: 7899309688976337776}
   - component: {fileID: 1336375056568664771}
+  - component: {fileID: 1488779704009600112}
   m_Layer: 0
   m_Name: wood plane (4)
   m_TagString: Untagged
@@ -166,6 +189,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1488779704009600112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993066409454046434}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.044642825, y: 1.5336473, z: 0.7668121}
+  m_Center: {x: 0.0000003427267, y: 0.000000029802326, z: 0.0000007152557}
 --- !u!1 &7099741661115179254
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +221,7 @@ GameObject:
   - component: {fileID: 705452205951516891}
   - component: {fileID: 2868424347096328338}
   - component: {fileID: 1745685477838284585}
+  - component: {fileID: 8691948663795487816}
   m_Layer: 0
   m_Name: wood plane (2)
   m_TagString: Untagged
@@ -251,3 +296,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8691948663795487816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099741661115179254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04464283, y: 1.5336471, z: 0.76681197}
+  m_Center: {x: -0.000000009837101, y: 0.0000005066395, z: -0.00000071525574}
