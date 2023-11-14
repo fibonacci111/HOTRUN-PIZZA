@@ -26,10 +26,12 @@ public class CameraMoveController : MonoBehaviour
     {
         float x = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
         float y = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+        
         xRotation -= y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        
         CameraController.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        player_body.Rotate(Vector3.up * x);
+        player_body.Rotate(player_body.up * x);
     }
 
 }

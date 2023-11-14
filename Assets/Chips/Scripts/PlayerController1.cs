@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Controller1 : MonoBehaviour
 {
-    [SerializeField] CharacterController cc;
+    [SerializeField] public CharacterController cc;
     [SerializeField] public float Speed = 10f;
     [SerializeField] GameObject menu;
     public bool finish = false;
@@ -13,19 +14,20 @@ public class Player_Controller1 : MonoBehaviour
     public Transform GroundCheck;
     public float GroundDistanse = 0.4f;
     public LayerMask Ground;
-    bool isGround;
+   [NonSerialized] public bool isGround;
     public float JumpHeight = 10f;
-private  bool a = false;
+[NonSerialized ]public   bool a = false;
     public float NormalSpeed;
     public float Sprint = 100f;
     public float DownSpeed = 20f;
-    private bool enter = false;
-    private bool isSitting = false;
-    [SerializeField] float Plus_height;
-    [SerializeField] float HeightNormal;
-    [SerializeField] float HeightDown;
-    [SerializeField] float Plus_time;
-    public bool isPizzaTake = false;
+    
+    [NonSerialized] public bool enter = false;
+
+   [SerializeField] Down down = new();
+    
+   
+   
+   public bool isPizzaTake = false;
    public static Player_Controller1 pla;
     private void Awake()
     {
@@ -57,18 +59,21 @@ private  bool a = false;
         }
         float horisontal = Input.GetAxisRaw("Horizontal");
        
+
         Vector3 move = transform.right * horisontal + transform.forward * vertical;
         Vector3 move_forword = transform.forward * vertical;
         if (vertical != -1 && !isGround)
         {
+            move_forword.Normalize();
             cc.Move(move_forword * Speed * Time.deltaTime);
         }
         else if (isGround)
         {
+            move.Normalize();
             cc.Move(move * Speed * Time.deltaTime);
         }
             velosity.y += gravity * Time.deltaTime;
-        cc.Move(velosity * Time.deltaTime);
+            cc.Move(velosity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGround&& !isPizzaTake)
         {
@@ -77,8 +82,9 @@ private  bool a = false;
         
         
         
-        Player_down();
+        down.Player_down();
     }
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.TryGetComponent<Finish_Taker>(out Finish_Taker fin))
@@ -91,43 +97,55 @@ private  bool a = false;
     //        Time.timeScale = 0;
     //    }
     //}
+   
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(GroundCheck.position, GroundDistanse);
+    }
+}
+[System.Serializable]public class Down
+{
+    
+    [SerializeField] float HeightNormal;
+    [SerializeField] float HeightDown;
+    [SerializeField] float Plus_time;
+    [SerializeField] float Plus_height;
+    
+   
     public void Player_down()
     {
-      
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGround&& a)
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && Player_Controller1.pla.isGround && Player_Controller1.pla.a)
         {
-            Speed = DownSpeed;
-            cc.height = HeightDown;
-            
-            a = false;
-            
+            Player_Controller1.pla.Speed = Player_Controller1.pla.DownSpeed;
+            Player_Controller1.pla.cc.height = HeightDown;
+
+            Player_Controller1.pla.a = false;
+
 
         }
-        else if(Input.GetKeyDown(KeyCode.LeftControl) && isGround && !a)
-        { Speed = NormalSpeed;
-            StartCoroutine(Down_Time());
-            
-            a = true;
-           
+        else if (Input.GetKeyDown(KeyCode.LeftControl) && Player_Controller1.pla.isGround && !Player_Controller1.pla.a)
+        {
+            Player_Controller1.pla.Speed = Player_Controller1.pla.NormalSpeed;
+            Player_Controller1.pla.StartCoroutine(Down_Time());
+
+            Player_Controller1.pla.a = true;
+
         }
 
 
     }
     IEnumerator Down_Time()
     {
-      
 
-        while (cc.height <= HeightNormal)
+
+        while (Player_Controller1.pla.cc.height <= HeightNormal)
         {
             yield return new WaitForSeconds(Plus_time);
-            cc.height += Plus_height;
-            enter = true;
+            Player_Controller1.pla.cc.height += Plus_height;
+                Player_Controller1.pla.enter = true;
         }
 
-        isSitting = false;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(GroundCheck.position, GroundDistanse);
+ 
     }
 }
