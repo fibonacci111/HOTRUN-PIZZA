@@ -22774,10 +22774,10 @@ MonoBehaviour:
   Sprint: 9
   DownSpeed: 20
   down:
-    HeightNormal: 0
-    HeightDown: 0
-    Plus_time: 0
-    Plus_height: 0
+    HeightNormal: 2
+    HeightDown: 0.5
+    Plus_time: 1
+    Plus_height: 0.1
   isPizzaTake: 0
 --- !u!1 &1102559982
 GameObject:
@@ -32215,7 +32215,7 @@ GameObject:
   - component: {fileID: 1531605167}
   - component: {fileID: 1531605166}
   - component: {fileID: 1531605165}
-  - component: {fileID: 1531605168}
+  - component: {fileID: 1531605164}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -32239,6 +32239,22 @@ Transform:
   - {fileID: 40771334}
   m_Father: {fileID: 1008272200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531605164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531605161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf638a4491b50e4a995e7f8ad155d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 400
+  normalSpeed: 0
+  CameraController: {fileID: 1008272200}
+  player_body: {fileID: 1094739716}
 --- !u!114 &1531605165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32342,22 +32358,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1531605168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531605161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf638a4491b50e4a995e7f8ad155d68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
-  normalSpeed: 0
-  CameraController: {fileID: 1531605162}
-  player_body: {fileID: 1094739716}
 --- !u!1 &1534586486
 GameObject:
   m_ObjectHideFlags: 0
