@@ -20,6 +20,7 @@ public class Player_Controller1 : MonoBehaviour
     public float NormalSpeed;
     public float Sprint = 100f;
     public float DownSpeed = 20f;
+     public bool isPizzaTake = false;
     
     [NonSerialized] public bool enter = false;
 
@@ -27,7 +28,7 @@ public class Player_Controller1 : MonoBehaviour
     
    
    
-   public bool isPizzaTake = false;
+  
    public static Player_Controller1 pla;
     private void Awake()
     {
