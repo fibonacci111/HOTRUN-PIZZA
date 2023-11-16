@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5961935423131602249}
   - component: {fileID: 8965408112457163237}
   - component: {fileID: 6897917581039272689}
+  - component: {fileID: 4667355378783471261}
   m_Layer: 0
   m_Name: SM_D_DeadInsideBox (1)
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 2169639730765775755}
   - {fileID: 7897597477280166425}
-  - {fileID: 7541283704096736030}
+  - {fileID: 8668619112370317316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8965408112457163237
@@ -86,6 +87,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4667355378783471261
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562548898844563165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5427939404393510090, guid: db765aea919d7be4f9cbaa4bf1c340c1, type: 3}
 --- !u!1001 &2704478456204894162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,7 +177,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102301c8269237c429915f3455e922fd, type: 3}
---- !u!4 &7541283704096736030 stripped
+--- !u!4 &8668619112370317316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6756846347643828182, guid: 102301c8269237c429915f3455e922fd,
     type: 3}

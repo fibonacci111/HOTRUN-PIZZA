@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5966850822909208057}
   - component: {fileID: 7715937608052776247}
   - component: {fileID: 5304627213013086217}
+  - component: {fileID: 4264188862876767661}
   m_Layer: 0
   m_Name: SM_D_FruitBox2
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3515520283688339623}
-  - {fileID: 4510006666318443043}
+  - {fileID: 8788005381455828176}
   - {fileID: 8838456515556802068}
   - {fileID: 9178559469852186008}
   - {fileID: 5146539999472894527}
@@ -88,6 +89,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4264188862876767661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355773374119077666}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0307871, y: 0.3305928, z: 0.68949026}
+  m_Center: {x: 0.00000017881393, y: 0.16530004, z: 0}
 --- !u!1001 &1921081184115193321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,7 +400,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d4a69b49db75c4eb31b51feef62d09, type: 3}
---- !u!4 &4510006666318443043 stripped
+--- !u!4 &8788005381455828176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5144104176324224754, guid: d1d4a69b49db75c4eb31b51feef62d09,
     type: 3}
