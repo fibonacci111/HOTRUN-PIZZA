@@ -19,12 +19,12 @@ public class Player_Controller1 : MonoBehaviour
 [NonSerialized ]public   bool a = false;
     public float NormalSpeed;
     public float Sprint = 100f;
-    public float DownSpeed = 20f;
+    
      public bool isPizzaTake = false;
     
     [NonSerialized] public bool enter = false;
 
-   [SerializeField] Down down = new();
+   
     
    
    
@@ -83,7 +83,7 @@ public class Player_Controller1 : MonoBehaviour
         
         
         
-        down.Player_down();
+       
     }
 
     //private void OnTriggerEnter(Collider other)
@@ -104,49 +104,5 @@ public class Player_Controller1 : MonoBehaviour
         Gizmos.DrawSphere(GroundCheck.position, GroundDistanse);
     }
 }
-[System.Serializable]public class Down
-{
-    
-    [SerializeField] float HeightNormal;
-    [SerializeField] float HeightDown;
-    [SerializeField] float Plus_time;
-    [SerializeField] float Plus_height;
-    
-   
-    public void Player_down()
-    {
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && Player_Controller1.pla.isGround && Player_Controller1.pla.a)
-        {
-            Player_Controller1.pla.Speed = Player_Controller1.pla.DownSpeed;
-            Player_Controller1.pla.cc.height = HeightDown;
-
-            Player_Controller1.pla.a = false;
 
 
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftControl) && Player_Controller1.pla.isGround && !Player_Controller1.pla.a)
-        {
-            Player_Controller1.pla.Speed = Player_Controller1.pla.NormalSpeed;
-            Player_Controller1.pla.StartCoroutine(Down_Time());
-
-            Player_Controller1.pla.a = true;
-
-        }
-
-
-    }
-    IEnumerator Down_Time()
-    {
-
-
-        while (Player_Controller1.pla.cc.height <= HeightNormal)
-        {
-            yield return new WaitForSeconds(Plus_time);
-            Player_Controller1.pla.cc.height += Plus_height;
-                Player_Controller1.pla.enter = true;
-        }
-
- 
-    }
-}
