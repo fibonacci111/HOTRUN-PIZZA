@@ -24,9 +24,9 @@ public class Player_Controller1 : MonoBehaviour
     
     [NonSerialized] public bool enter = false;
 
-   
-    
-   
+
+
+    public int Pass;
    
   
    public static Player_Controller1 pla;
