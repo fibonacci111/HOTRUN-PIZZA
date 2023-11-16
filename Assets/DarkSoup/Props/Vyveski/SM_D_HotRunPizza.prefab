@@ -117,7 +117,6 @@ GameObject:
   - component: {fileID: 7072619698940691272}
   - component: {fileID: 3351121882359964779}
   - component: {fileID: 6956826969531514}
-  - component: {fileID: 2519547079069465457}
   m_Layer: 0
   m_Name: SM_D_HotRunPizza.001 (2)
   m_TagString: Untagged
@@ -190,28 +189,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2519547079069465457
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2223755072128928481}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1279657323146241982, guid: 95d0e17a7af4fb944871b5360867a103, type: 3}
 --- !u!1 &3876155195335416057
 GameObject:
   m_ObjectHideFlags: 0
