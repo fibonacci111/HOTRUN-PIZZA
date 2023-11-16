@@ -17,10 +17,9 @@ public class PizzaPickup : MonoBehaviour
         playerController = FindObjectOfType<Player_Controller1>();
     }
     private void Update()
-    {if (switching != 0)
-        {
+    {
             SetPizzaAct();
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
