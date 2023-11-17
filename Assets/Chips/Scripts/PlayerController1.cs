@@ -23,8 +23,8 @@ public class Player_Controller1 : MonoBehaviour
      public bool isPizzaTake = false;
     
     [NonSerialized] public bool enter = false;
-
-
+    [SerializeField] Animator anim;
+    [SerializeField] Animator handAnim;
 
     public int Pass;
    
@@ -59,8 +59,36 @@ public class Player_Controller1 : MonoBehaviour
             Speed = NormalSpeed;
         }
         float horisontal = Input.GetAxisRaw("Horizontal");
-       
+        if (isPizzaTake)
+        {
+            handAnim.SetBool("IsPizzaWalking", true);
+        }
+        if (horisontal !=0 || vertical != 0)
+        {
+            
+            anim.SetBool("IsWalk", true);
+           if (!isPizzaTake)
+            {
+               
+                
+                handAnim.SetBool("IsWalking", true);
+            }
 
+        }
+        else
+        {
+            if (isPizzaTake)
+            {
+                handAnim.SetBool("IsPizzaWalking", true);
+            }
+            else
+            {
+                handAnim.SetBool("IsPizzaWalking", false);
+            }
+            anim.SetBool("IsWalk", false);
+            
+            handAnim.SetBool("IsWalking", false);
+        }
         Vector3 move = transform.right * horisontal + transform.forward * vertical;
         Vector3 move_forword = transform.forward * vertical;
         if (vertical != -1 && !isGround)
