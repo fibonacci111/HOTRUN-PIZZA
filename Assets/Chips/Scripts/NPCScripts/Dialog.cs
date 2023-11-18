@@ -9,7 +9,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] GameObject windowDialog;
     [SerializeField] TextMeshProUGUI textDialog;
     [SerializeField] Button button;
-  
+    [SerializeField] bool deleteDialogu = false; 
    
     bool look;
     public string[] message;
@@ -46,10 +46,7 @@ public class Dialog : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        windowDialog.SetActive(false);
-        numberDialog = 0;
-        CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
-        button.onClick.RemoveAllListeners();
+        
     }
 
     public void NextDialog()
@@ -60,7 +57,15 @@ public class Dialog : MonoBehaviour
         {
             button.gameObject.SetActive(false);
             look = false;
-           // DeleteDialogue.SetActive(false);
+           windowDialog.SetActive(false);
+        numberDialog = 0;
+        CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
+        button.onClick.RemoveAllListeners();
+            if (deleteDialogu)
+            {
+                DeleteDialogue.SetActive(false);
+            }
+           
             CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
             Cursor.lockState = CursorLockMode.Locked;
         }

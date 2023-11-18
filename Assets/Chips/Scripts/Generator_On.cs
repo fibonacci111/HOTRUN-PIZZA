@@ -13,16 +13,21 @@ public class Generator_On : MonoBehaviour
 [SerializeField] AudioClip EffectsClip;
    public  int MaxPass = 3;
     [SerializeField] GameObject door_opener;
+    [SerializeField] GameObject Buttery_Counter;
+    private bool isCounted = true;
 private void OnTriggerStay(Collider other)
 {
-    if (other.CompareTag("Player"))
+    if (other.CompareTag("Player")&&isCounted)
     {
-       
+            Buttery_Counter.SetActive(true);
+            isCounted = false;
+
     }
     if (other.CompareTag("Player") && Player_Controller1.pla.Pass >= MaxPass && Input.GetKeyDown(KeyCode.E))
     {
         battaryes.SetActive(true);
         door_opener.SetActive(true);
+            Buttery_Counter.SetActive(false);
             // anim.CrossFade("Inter", 0.1f);
             // Effects.SetActive(true);
             //audio.clip = EffectsClip;
