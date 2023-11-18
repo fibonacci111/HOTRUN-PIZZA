@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
 public class PizzaPickup : MonoBehaviour
 {
     public KeyCode pickupKey = KeyCode.E;
+    
     public GameObject pizza;
     public GameObject playerPizza;
-
+    int switching = 0;
   
     public Player_Controller1 playerController;
 
@@ -14,25 +16,45 @@ public class PizzaPickup : MonoBehaviour
         
         playerController = FindObjectOfType<Player_Controller1>();
     }
-
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
-        Debug.Log("Trigger entered");
+            SetPizzaAct();
+        
+    }
 
-        if (other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf && !playerPizza.activeSelf)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        { 
+            switching = 1;
+    }  
+      
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            pizza.SetActive(false);
-            playerPizza.SetActive(true);
-
-           
-            playerController.isPizzaTake = true;
+            switching = 0;
         }
-        else if (other.CompareTag("Player") && Input.GetKeyDown(pickupKey) && pizza.activeSelf == false && playerPizza.activeSelf)
-        {
-            pizza.SetActive(true);
-            playerPizza.SetActive(false);
+    }
+    
+    private void SetPizzaAct()
+    {
+         if (switching == 1 &&pizza.activeSelf && !playerPizza.activeSelf&&Input.GetKeyDown(KeyCode.E))
+            {
+                pizza.SetActive(false);
+                playerPizza.SetActive(true);
+            
+                
+                playerController.isPizzaTake = true;
+            }
+              
+            else if (switching == 1 &&!pizza.activeSelf && playerPizza.activeSelf&&Input.GetKeyDown(KeyCode.E))
+              {
+                pizza.SetActive(true);
+                playerPizza.SetActive(false);
 
-            playerController.isPizzaTake = false;
-        }
+                playerController.isPizzaTake = false;
+              }
     }
 }
