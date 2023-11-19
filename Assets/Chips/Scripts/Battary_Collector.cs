@@ -8,13 +8,29 @@ public class Battary_Collector : MonoBehaviour
 {
     [SerializeField] GameObject gameObject;
     [SerializeField] Text text;
-    private void OnTriggerEnter(Collider other)
+    private bool enter;
+    private void Update()
     {
-        if (other.TryGetComponent(out Player_Controller1 pla))
+        if (enter && Input.GetKeyDown(KeyCode.E))
         {
             Player_Controller1.pla.Pass += 1;
             text.text = Player_Controller1.pla.Pass.ToString();
             gameObject.SetActive(false);
+        }
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Player_Controller1 pla))
+        {
+            enter = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Player_Controller1 pla))
+        {
+            enter = true;
         }
     }
 }
