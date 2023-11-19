@@ -15,6 +15,7 @@ public class DialogueWindow : MonoBehaviour
     bool look;
     public string[] message;
     private int numberDialog = 0;
+    [SerializeField] GameObject DeleteDialogue;
     private void Update()
     {
         if (look)
@@ -49,9 +50,7 @@ public class DialogueWindow : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        windowDialog.SetActive(false);
-        numberDialog = 0;
-        button.onClick.RemoveAllListeners();
+        
     }
 
     public void NextDialog()
@@ -62,9 +61,12 @@ public class DialogueWindow : MonoBehaviour
         {
             button.gameObject.SetActive(false);
             look = false;
+            DeleteDialogue.SetActive(false);
             Player_Controller1.pla.Speed = Player_Controller1.pla.NormalSpeed;
             CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;windowDialog.SetActive(false);
+        numberDialog = 0;
+        button.onClick.RemoveAllListeners();
         }
     }
 }
