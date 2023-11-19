@@ -25,6 +25,7 @@ public class Player_Controller1 : MonoBehaviour
     [NonSerialized] public bool enter = false;
     [SerializeField] Animator anim;
     [SerializeField] Animator handAnim;
+    [SerializeField] GameObject stepSound;
 
     public int Pass;
    
@@ -72,6 +73,7 @@ public class Player_Controller1 : MonoBehaviour
                
                 
                 handAnim.SetBool("IsWalking", true);
+                stepSound.SetActive(true);
             }
 
         }
@@ -86,6 +88,7 @@ public class Player_Controller1 : MonoBehaviour
                 handAnim.SetBool("IsPizzaWalking", false);
             }
             anim.SetBool("IsWalk", false);
+            stepSound.SetActive(false);
             
             handAnim.SetBool("IsWalking", false);
         }
