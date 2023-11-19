@@ -26,7 +26,7 @@ public class Player_Controller1 : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Animator handAnim;
     [SerializeField] GameObject stepSound;
-
+    [SerializeField] GameObject Eimage;
     public int Pass;
    
   
@@ -133,6 +133,20 @@ public class Player_Controller1 : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(GroundCheck.position, GroundDistanse);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EDown"))
+        {
+            Eimage.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EDown"))
+        {
+            Eimage.SetActive(false);
+        }
     }
 }
 
