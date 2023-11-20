@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player_Controller1 : MonoBehaviour
 {
     [SerializeField] public CharacterController cc;
@@ -28,7 +29,7 @@ public class Player_Controller1 : MonoBehaviour
     [SerializeField] GameObject stepSound;
     [SerializeField] GameObject Eimage;
     public int Pass;
-   
+    [SerializeField] GameObject MainMenu;
   
    public static Player_Controller1 pla;
     private void Awake()
@@ -42,6 +43,12 @@ public class Player_Controller1 : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MainMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+        }
         isGround = Physics.CheckSphere(GroundCheck.position, GroundDistanse, Ground);
         if (isGround && velosity.y < 0)
         {
