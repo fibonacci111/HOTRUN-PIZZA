@@ -68,12 +68,19 @@ public class Player_Controller1 : MonoBehaviour
         {
             
             anim.SetBool("IsWalk", true);
-           if (!isPizzaTake)
+            if (!isPizzaTake)
             {
-               
-                
+
+
                 handAnim.SetBool("IsWalking", true);
-                stepSound.SetActive(true);
+                if (isGround)
+                {
+                    stepSound.SetActive(true);
+                }
+                else
+                {
+                    stepSound.SetActive(false);
+                }
             }
 
         }
@@ -88,6 +95,7 @@ public class Player_Controller1 : MonoBehaviour
                 handAnim.SetBool("IsPizzaWalking", false);
             }
             anim.SetBool("IsWalk", false);
+            
             stepSound.SetActive(false);
             
             handAnim.SetBool("IsWalking", false);
