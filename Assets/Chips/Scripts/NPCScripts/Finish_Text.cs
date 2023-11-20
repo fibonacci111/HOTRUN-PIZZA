@@ -15,11 +15,12 @@ public class Finish_Text1 : MonoBehaviour
     bool look;
     public string[] message;
     private int numberDialog = 0;
+    public int pass;
      ///[SerializeField] GameObject DeleteDialogue;
     bool enter = false;
     private void Update()
     {
-        if (enter && Input.GetKeyDown(KeyCode.E)&&FinishPizza.activeSelf)
+        if (enter && Input.GetKeyDown(KeyCode.E)&&(FinishPizza.activeSelf||Player_Controller1.pla.Pass != pass))
         {
             Cursor.lockState = CursorLockMode.Confined;
             look = true;

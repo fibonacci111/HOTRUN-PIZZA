@@ -13,6 +13,7 @@ public class Finish_Lift : MonoBehaviour
     public bool switching = false;
     [SerializeField] Animator anim;
     [SerializeField] GameObject FinishPizza;
+    [SerializeField] GameObject Sound;
     void FixedUpdate()
     {
 
@@ -48,6 +49,7 @@ public class Finish_Lift : MonoBehaviour
             if (Player_Controller1.pla.isPizzaTake)
             {
                 anim.CrossFade("Pizza action", 0.2f);
+                Sound.SetActive(true);
             }
             else
             {
