@@ -15,7 +15,7 @@ public class Can_Text_Rotation : MonoBehaviour
     void Start()
     {
         _rotation = new Vector3(0, 0, 0.1f);
-        _distance = 4;
+        _distance = 0;
         //_transform = new Vector3(0, 0.1f, 0);
         _x = this.transform.position.x;
         _y = this.transform.position.y;
