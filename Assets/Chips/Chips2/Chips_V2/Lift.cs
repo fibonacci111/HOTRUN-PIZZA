@@ -86,6 +86,10 @@ public class Lift : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Player")&&isLift)
+        {
+            other.transform.parent = null;
+        }
         if (other.CompareTag("Player"))
         {
             OnStay = false;
