@@ -13,6 +13,7 @@ public class Lift : MonoBehaviour
     private bool OnStay = false;
     public bool switching = false;
     [SerializeField] Animator anim;
+    public bool isLift = false;
 
     void FixedUpdate()
     {
@@ -43,7 +44,11 @@ public class Lift : MonoBehaviour
            
         }
         
-       if (Input.GetKeyDown(KeyCode.E) && switching&& OnStay)
+       
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && switching && OnStay)
         {
             switching = false;
             if (Player_Controller1.pla.isPizzaTake)
@@ -73,6 +78,10 @@ public class Lift : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnStay = true;
+        }
+        if (other.CompareTag("Player")&&isLift)
+        {
+            other.transform.parent = this.transform;
         }
     }
     private void OnTriggerExit(Collider other)
