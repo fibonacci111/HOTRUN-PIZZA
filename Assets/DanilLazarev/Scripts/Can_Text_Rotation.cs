@@ -27,6 +27,6 @@ public class Can_Text_Rotation : MonoBehaviour
     {
         this.transform.rotation *= Quaternion.Euler(_rotation);
         var _position = Mathf.PingPong(Time.time, _distance);
-        transform.position = new Vector3(_x, _y *_position, _z);
+        transform.position = new Vector3(_x, _y *_position, _z); 
     }
 }

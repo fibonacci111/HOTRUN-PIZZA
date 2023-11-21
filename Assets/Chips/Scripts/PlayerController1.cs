@@ -15,9 +15,9 @@ public class Player_Controller1 : MonoBehaviour
     public Transform GroundCheck;
     public float GroundDistanse = 0.4f;
     public LayerMask Ground;
-   [NonSerialized] public bool isGround;
+    [NonSerialized] public bool isGround;
     public float JumpHeight = 10f;
-[NonSerialized ]public   bool a = false;
+    [NonSerialized ]public   bool a = false;
     public float NormalSpeed;
     public float Sprint = 100f;
     
