@@ -6,12 +6,12 @@ using UnityEngine;
 public class Generator_On : MonoBehaviour
 {[SerializeField] GameObject battaryes;
     [SerializeField] GameObject image;
-[SerializeField] Animator anim;
-[SerializeField] GameObject Effects;
-[SerializeField] AudioSource audio;
-[SerializeField] AudioClip Generator;
-[SerializeField] AudioClip EffectsClip;
-   public  int MaxPass = 3;
+    [SerializeField] Animator anim;
+    [SerializeField] GameObject Effects;
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip Generator;
+    [SerializeField] AudioClip EffectsClip;
+    public  int MaxPass = 3;
     [SerializeField] GameObject door_opener;
     [SerializeField] GameObject Buttery_Counter;
     private bool isCounted = true;
