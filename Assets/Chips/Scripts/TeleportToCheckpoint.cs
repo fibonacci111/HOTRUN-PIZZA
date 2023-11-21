@@ -19,10 +19,10 @@ public class TeleportToCheckpoint : MonoBehaviour
         {
             timer = 0;
         }
-        if(video.activeSelf&&timer<100) {
+        if(video.activeSelf&&timer<30) {
             timer += 0.1f;
             
-        }else if (timer >= 100 && video.activeSelf)
+        }else if (timer >= 30 && video.activeSelf)
         {
             
             video.SetActive(false);
