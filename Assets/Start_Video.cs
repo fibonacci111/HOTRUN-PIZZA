@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Finish : MonoBehaviour
+public class Start_Video : MonoBehaviour
 {
-  
-    [SerializeField] GameObject finish;
-
+    [SerializeField] GameObject video;
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
-            Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            video.SetActive(true);
         }
     }
 }
