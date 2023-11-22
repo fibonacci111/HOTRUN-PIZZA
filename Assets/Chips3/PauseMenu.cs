@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     {
         Checkpoint.TeleportToLastCheckpoint(player.transform);
         pause.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void MenuButtonClick()
     {
