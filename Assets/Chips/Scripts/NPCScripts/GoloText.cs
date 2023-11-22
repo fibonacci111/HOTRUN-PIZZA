@@ -22,7 +22,7 @@ public class GoloText : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             look = true;
-            Player_Controller1.pla.Speed = 0;
+         
             CameraMoveController.instance.speed = 0;
             if (numberDialog == message.Length - 1)
             {
