@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public void OnButtonClicResume()
     {
         pause.SetActive(false);
+        Time.timeScale = 1;
     }
     public void TeleportClicCheckpoint()
     {
