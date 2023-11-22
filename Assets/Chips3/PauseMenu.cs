@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class PauseMenu : MonoBehaviour
+{
+    [SerializeField] GameObject pause;
+    public Transform player;
+
+
+    public void OnButtonClicResume()
+    {
+        pause.SetActive(false);
+    }
+    public void TeleportClicCheckpoint()
+    {
+        Checkpoint.TeleportToLastCheckpoint(player.transform);
+        pause.SetActive(false);
+    }
+    public void MenuButtonClick()
+    {
+        SceneManager.LoadScene(0);
+    }
+}
