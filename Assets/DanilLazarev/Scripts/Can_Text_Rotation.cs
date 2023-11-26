@@ -5,7 +5,7 @@ using UnityEngine;
 public class Can_Text_Rotation : MonoBehaviour
 {
     [SerializeField] private Vector3 _rotation;
-    [SerializeField] private int _distance;
+    [SerializeField] private float _distance;
     //[SerializeField] private Vector3 _transform;
     private float _x;
     private float _y;
