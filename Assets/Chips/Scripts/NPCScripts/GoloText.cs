@@ -16,6 +16,9 @@ public class GoloText : MonoBehaviour
     private int numberDialog = 0;
    // [SerializeField] GameObject DeleteDialogue;
     bool enter = false;
+
+    public bool isFinish;
+    [SerializeField] GameObject Finish_Jump;
     private void Update()
     {
         if (enter&&Input.GetKeyDown(KeyCode.E))
@@ -70,6 +73,10 @@ public class GoloText : MonoBehaviour
             Player_Controller1.pla.Speed = Player_Controller1.pla.NormalSpeed;
             CameraMoveController.instance.speed = CameraMoveController.instance.normalSpeed;
             Cursor.lockState = CursorLockMode.Locked;
+            if (isFinish)
+            {
+                Finish_Jump.SetActive(true);
+            }
         }
     }
 }
