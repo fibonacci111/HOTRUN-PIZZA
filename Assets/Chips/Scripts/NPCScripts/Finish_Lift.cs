@@ -43,6 +43,9 @@ public class Finish_Lift : MonoBehaviour
 
         }
 
+    }
+    private void Update()
+    { 
         if (Input.GetKeyDown(KeyCode.E) && switching && OnStay&&!FinishPizza.activeSelf)
         {
             switching = false;
@@ -56,19 +59,18 @@ public class Finish_Lift : MonoBehaviour
                 anim.CrossFade("Action", 0.2f);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.E) && !switching && OnStay&&!FinishPizza.activeSelf)
-        {
-            if (Player_Controller1.pla.isPizzaTake)
-            {
-                anim.CrossFade("Pizza action", 0.2f);
-            }
-            else
-            {
-                anim.CrossFade("Action", 0.2f);
-            }
-            switching = true;
-        }
+        else if (Input.GetKeyDown(KeyCode.E) && !switching && OnStay && !FinishPizza.activeSelf)
+{
+    if (Player_Controller1.pla.isPizzaTake)
+    {
+        anim.CrossFade("Pizza action", 0.2f);
     }
+    else
+    {
+        anim.CrossFade("Action", 0.2f);
+    }
+    switching = true;
+}}
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
