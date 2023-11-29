@@ -9,6 +9,7 @@ public class Battary_Collector : MonoBehaviour
     [SerializeField] GameObject gameObject;
     [SerializeField] Text text;
     private bool enter;
+    [SerializeField] GameObject image;
     private void Update()
     {
         if (enter && Input.GetKeyDown(KeyCode.E))
@@ -16,6 +17,7 @@ public class Battary_Collector : MonoBehaviour
             Player_Controller1.pla.Pass += 1;
             text.text = Player_Controller1.pla.Pass.ToString();
             gameObject.SetActive(false);
+            image.SetActive(true);
         }
         
     }
